@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <title>29cm</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="stylesheet" href="/src/styles/tailwind.css" />
+    <script type="module" src="/src/pages/login/login.js"></script>
+  </head>
+  <body>
+    <header class="p-6 bg-slate-200 flex justify-between">
+      <h1 class="logo font-bold">
+        <a href="/">29CM</a>
+      </h1>
+
+      <nav>
+        <ul class="flex gap-5">
+          <li><a href="/">HOME</a></li>
+          <li><a href="/src/pages/product/">PRODUCTS</a></li>
+          <li><a href="/src/pages/login/">LOGIN</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <h1>로그인</h1>
+      <hr />
+      <form action="">
+        <div>
+          <label for="idField"></label>
+          <input type="email" id="idField" placeholder="아이디 (이메일)" />
+        </div>
+        <div>
+          <label for="pwField"></label>
+          <input type="password" id="pwField" placeholder="비밀번호" />
+        </div>
+        <button type="submit" class="login">LOGIN</button>
+      </form>
+      <a href="/src/pages/register/" class="register">간편 회원가입</a>
+    </div>
+  </body>
+</html>

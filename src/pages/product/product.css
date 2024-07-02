@@ -1,0 +1,53 @@
+.container {
+  margin: a auto;
+}
+
+.container > ul {
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  margin: 2.5rem;
+}
+
+.container > ul > li > div {
+  max-width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.brand {
+  font-weight: bold;
+}
+
+.desc {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.discount {
+  font-size: 1rem;
+  color: red;
+}
+
+.price {
+  color: #767676;
+  text-decoration: line-through;
+}
+
+.real-price {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+@media (max-width: 640px) {
+  .container > ul {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  .container > ul > li > div {
+    max-width: 80vw;
+  }
+}

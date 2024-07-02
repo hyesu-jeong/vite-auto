@@ -1,0 +1,62 @@
+.container {
+  padding: 2rem;
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.container img {
+  filter: brightness(0.7);
+  margin: 0 auto;
+}
+
+.container h2 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.container h2 span {
+  display: block;
+}
+
+.container h2 span:nth-child(1) {
+  background-color: black;
+  color: white;
+  padding: 0.5rem;
+  white-space: nowrap;
+}
+
+.container h2 span:nth-child(2) {
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+}
+
+.visual {
+  max-height: 70vh;
+  overflow: hidden;
+}
+
+.thumbnail {
+  max-width: 50px;
+  margin: 1rem auto 0 auto;
+  overflow: hidden;
+}
+
+.username {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.logout {
+  padding: 0.3rem 1rem;
+  border: 1px solid black;
+  transition: all 0.2s;
+}
+
+.logout:hover {
+  background: black;
+  color: white;
+}
