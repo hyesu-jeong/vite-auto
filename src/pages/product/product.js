@@ -1,10 +1,21 @@
+import defaultAuthData from '@/api/defaultAuthData';
 import getPbImageURL from '@/api/getPbImageURL';
+import pb from '@/api/pocketbase';
 import '@/pages/product/product.css';
 import gsap from 'gsap';
-import { comma, insertLast, setDocumentTitle } from 'kind-tiger';
-import pb from '@/api/pocketbase';
+import {
+  comma,
+  getStorage,
+  insertLast,
+  setDocumentTitle,
+  setStorage,
+} from 'kind-tiger';
 
 setDocumentTitle('29CM / 상품목록');
+
+if (!localStorage.getItem('auth')) {
+  setStorage('auth', defaultAuthData);
+}
 
 async function renderProductItem() {
   const productData = await pb.collection('products').getFullList({
@@ -16,12 +27,16 @@ async function renderProductItem() {
   // ); // Fetch API
   // const productData = response.data.items; // Fetch API data
 
+  const { isAuth } = await getStorage('auth'); // 로그인 정보 가져오기
+  console.log(isAuth);
+
   productData.forEach((item) => {
     const discount = item.price * (item.ratio * 0.01);
     const template = /* html */ `
       <li class="product-item">
           <div>
             <figure>
+              <a href="${isAuth ? `/src/pages/detail/index.html?product=${item.id}` : '/src/pages/login/'}"></a>
               <img src="${getPbImageURL(item)}" alt="" />
             </figure>
             <span class="brand">${item.brand}</span>

@@ -2,6 +2,19 @@
   margin: a auto;
 }
 
+.container figure {
+  position: relative;
+}
+
+.container figure a {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
 .container > ul {
   display: grid;
   place-items: center;

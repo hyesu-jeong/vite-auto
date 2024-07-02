@@ -1,7 +1,8 @@
+import defaultAuthData from '@/api/defaultAuthData';
 import getPbImageURL from '@/api/getPbImageURL';
 import pb from '@/api/pocketbase';
 import gsap from 'gsap';
-import { deleteStorage, getNode, getStorage, insertLast } from 'kind-tiger';
+import { getNode, getStorage, insertLast, setStorage } from 'kind-tiger';
 import '/src/styles/global.css';
 
 const tl = gsap.timeline({
@@ -33,7 +34,8 @@ async function logout() {
       function handleLogout() {
         if (confirm('정말 로그아웃 하실겁니까?')) {
           pb.authStore.clear(); // pochketbase 삭제
-          deleteStorage('auth'); // auth 삭제
+          // deleteStorage('auth'); // auth 삭제
+          setStorage('auth', defaultAuthData); // key는 유지하고 value만 로그아웃 상태로 수정.
           location.reload(); // 새로고침
         }
       }
